@@ -56,9 +56,9 @@ import com.jogamp.opengl.util.packrect.*;
 import com.jogamp.opengl.util.texture.TextureCoords;
 import jogamp.opengl.Debug;
 
-import javax.media.opengl.*;
-import javax.media.opengl.awt.GLCanvas;
-import javax.media.opengl.glu.GLU;
+import com.jogamp.opengl.*;
+import com.jogamp.opengl.awt.GLCanvas;
+import com.jogamp.opengl.glu.GLU;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.font.*;
@@ -1915,11 +1915,9 @@ public class TextRenderer {
     }
 
     class DebugListener implements GLEventListener {
-        private GLU glu;
         private Frame frame;
 
         DebugListener(GL gl, Frame frame) {
-            this.glu = GLU.createGLU(gl);
             this.frame = frame;
         }
 
@@ -1951,8 +1949,6 @@ public class TextRenderer {
 
         @Override
         public void dispose(GLAutoDrawable drawable) {
-            glu.destroy();
-            glu=null;
             frame=null;
         }
 
